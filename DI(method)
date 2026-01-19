@@ -1,0 +1,48 @@
+
+problem 1 -
+public static void main(String[] args) {
+		Controller obj=new Controller(); //maybe this new Controller() that creats object...
+	Controller obj;// give me err obj is null
+		obj.getEmployee();
+	}
+
+solution - 
+public class DiApplication {
+	public static void main(String[] args) {
+		ApplicationContext context=SpringApplication.run(DiApplication.class, args);//now this automatically creates object in ioc container
+		Controller obj=context.getBean(Controller.class); 
+		// spring already creats in there ioc container so we ignore new COntroller();
+		obj.getEmployee();
+	}
+
+}
+@Component - Create an object of this class and manage it inside the IOC container.
+    public class Employeee {
+
+        public void compile(){
+            System.out.println("Compiling 404 error");
+        }
+    }
+
+problem 2 -
+@Autowired - connect class automatically. also called filled injection
+[we can create manually if we not write autowired
+ public Controller(Employeee employee){
+        this.employee=employee;
+    }
+]
+public class Controller {
+   @Autowired
+    private Employeee employee; //this give me null so we have to use aotuwired
+
+    //u mention 1st @Autowired
+    //setter injection
+    public void setEmployee(Employeee employee){
+        this.employee=employee;
+    }
+
+    public void getEmployee(){
+        employee.compile();
+        System.out.println("Employee Details");
+    }
+}
