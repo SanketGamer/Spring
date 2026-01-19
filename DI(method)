@@ -26,7 +26,7 @@ public class DiApplication {
 
 problem 2 -
 //@Qualifier("laptop")  //bydefault 1st laptop will accept
-@Primary resolves this by marking one bean as the default choice.
+@Primary resolves this by marking one bean as the default choice.simple word(so if one @primary write 1st this class use) but if we use 2 primary in 2 class it will give error.
 @Autowired - connect class automatically. also called filled injection
 [we can create manually if we not write autowired
  public Controller(Employeee employee){
