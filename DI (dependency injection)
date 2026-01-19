@@ -1,0 +1,34 @@
+
+
+DI(dependency injection) - another class object that a class needs to work, Giving required class objects from outside rather than creating them inside.
+
+Ex- 
+
+-- i have Geeta class - 
+class Geeta(){
+
+   public void doWork(){
+     ..........
+   }
+
+}
+
+
+another file i have class ramu - 
+--in there what i want... Geetas property so i have to inject in Ramu class Geetas object this is called dependency injection...
+class Ramu{
+
+    Geeta obj;  --dependency inject
+
+    -- dependency injection
+    Ramu(Geeta obj){
+      this.obj=obj;
+     }
+
+    public void doWork(){
+      .........
+    }
+
+}
+
+
