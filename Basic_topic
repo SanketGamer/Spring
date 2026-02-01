@@ -1,0 +1,14 @@
+Minimum spring knowledge to Learn first :
+
+IOC and Dependency injection : @Componenet,@Autowired,constructor injection
+Bean Management : @configuration,@Bean
+Spring Context : What is ApplicationContext?
+Spring MVC Basics: @Controller, @RestController, @RequestMapping
+
+Springboot topics :
+1. Springboot Auto-configuration
+2. Starter Dependencies
+3. Properties and YAML config
+4. Spring boot CLI(optional)
+5. Spring boot Devtools and Actuator
+6. Error Handling, validation, profiles
