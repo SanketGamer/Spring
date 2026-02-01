@@ -1,0 +1,54 @@
+
+class OrderService{
+private PaymentService payment=new PaymentService(); //tightly coupled
+}
+
+we have 3 problems in the code
+
+1. tight coupling : in tight coupling we see that child class depended on parent class object so if we chnage parent class we have to change in child class so the problem is wehn we chnage in parent class we chnage also in child class
+class Engine{
+    void ready(){
+        //if i change start to ready we have to change also in engine thats why this called tight coupling
+        System.out.println("Engine Start");
+    }
+}
+
+class Car{
+    Engine engine=new Engine();  //car depend directly on engine
+
+    void drive(){
+        engine.ready();
+        System.out.println("drive");
+    }
+}
+
+public void main(String[] args){
+   Car obj=new Car();
+   obj.drive();
+}
+
+2. Hard to test for example like Loose coupling(Loose coupling means classes depend on an abstraction (interface), not on concrete implementations)
+interface Engine {
+    void start();
+}
+
+class PetrolEngine implements Engine {
+    public void start() {
+        System.out.println("Petrol engine started");
+    }
+}
+
+class Car {
+    Engine engine;
+
+    Car(Engine engine) {
+        this.engine = engine;
+    }
+
+    void drive() {
+        engine.start();
+        System.out.println("Car is moving");
+    }
+}
+
+3. Scattered object creation : it occurs when each class instantiates its own dependencies using new, leading to tight coupling and making the system hard to maintain and test
