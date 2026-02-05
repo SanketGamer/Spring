@@ -1,0 +1,29 @@
+
+Q. How we do Spring without boot -
+1. Add Spring JAR dependencies
+we can search mvnrepo an search springcontext and add a dependency in pom.yml
+2. Create XML or Java-based configuration
+in main we create a directory resource inside we create a file spring.xml
+3. Create an ApplicationContext
+ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
+4. Ask Spring for beans
+
+
+//this we find search spring 6 bean configuration xml
+and add the beans
+now what it creates objects in ioc contaner
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="dev" class="org.example.Dev">
+</bean>
+    <bean id="dev1" class="org.example.Dev">
+    </bean>
+    <bean id="laptop" class="org.example.Laptop">
+
+    </bean>
+<!--    now it creates 2 objects-->
+<!--    now it creates 3 objects-->
+</beans>
