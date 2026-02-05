@@ -1,0 +1,97 @@
+
+Dev class - 
+package org.example;
+
+
+
+
+public class Dev {
+ private Laptop laptop;   //this is a refrence variable
+    private int age;   //this is aprimitive variable
+    public Dev(){
+        System.out.println("Dev constructor");
+
+    }
+
+//    public Dev(int age) {
+//        this.age = age;
+//        System.out.println("Dev Para constructor");
+//    }
+  public Dev(Laptop laptop) {
+       this.laptop = laptop;
+        System.out.println("Dev Para constructor");
+   }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
+
+    public void build(){
+        laptop.compile();
+        System.out.println("working on awesome project");
+    }
+}
+
+Laptop class - 
+package org.example;
+
+public class Laptop {
+
+    public Laptop(){
+        System.out.println("Laptop constructor");
+    }
+    public void compile(){
+        System.out.println("compiling");
+    }
+}
+
+main class -
+public class App 
+{
+    public static void main( String[] args )
+    {
+        ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
+        Dev obj=(Dev) context.getBean("dev");
+       // obj.setAge(18);
+        //System.out.println(obj.getAge());
+        obj.build();
+    }
+}
+
+
+-- spring.xml file - 
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="dev" class="org.example.Dev">
+<!--    this is called setter injection-->
+<!--    <property name="age" value="12"></property>-->
+<!--    this is called constructor injection-->
+<!--    <constructor-arg index="0" value="14"></constructor-arg>-->
+<!--    this is setter injection for reffrence variable-->
+<!--<property name="laptop" ref="lap1"></property>-->
+    <constructor-arg ref="lap1"></constructor-arg>
+
+</bean>
+    <bean id="dev1" class="org.example.Dev">
+    </bean>
+    <bean id="lap1" class="org.example.Laptop">
+
+    </bean>
+<!--    now it creates 2 objects-->
+<!--    now it creates 3 objects-->
+</beans>
