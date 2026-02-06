@@ -1,0 +1,5 @@
+
+JDK(Java Development Kit) - it is a tool that used to write and run the code
+JRE(Java Runtime Envirement) -  required to run Java applications.
+JVM(Java Virtual Machine) - that executes Java bytecode and converts it into machine code at runtime.
+
