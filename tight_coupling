@@ -1,0 +1,35 @@
+
+-- this is a razorpayclass
+
+@Component
+public class RazorPayPaymentService implements PaymentService{
+
+    public String pay(){
+        String Payment="RazorPay payment";
+        System.out.println("Payment from: "+Payment);
+        return Payment;
+    }
+
+}
+
+//this is the main class where we want another class property
+@SpringBootApplication
+public class InternalWorkingOfSpringboot implements CommandLineRunner {
+
+    public static void main(String[] args) {
+        SpringApplication.run(InternalWorkingOfSpringboot.class, args);
+    }
+    //@Autowired  //field injection
+    private RazorPayPaymentService paymentService;
+
+     public InternalWorkingOfSpringboot(RazorPayPaymentService paymentService){  //constructor di
+         this.paymentService=paymentService;
+    }
+    @Override
+    public void run(String... args) throws Exception {
+        String payment=paymentService.pay();
+        System.out.println("Payment done: "+payment);
+    }
+}
+
+//now we can see the main class dependent on razorpaypayment service this is called tight coupling. what if we wnat multiple payment process then we have to inject multiple service class
